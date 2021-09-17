@@ -59,7 +59,8 @@
 ## Git command
 ### 参考链接
   - [每个开发者都应该知道的 10 个 Git 命令](https://chinese.freecodecamp.org/news/10-important-git-commands-that-every-developer-should-know/)
-  - []()
+  - [撤销 commit](https://www.cnblogs.com/lfxiao/p/9378763.html)
+  - [git reset 和 git revert 的理解](https://vue3js.cn/interview/git/git%20reset_%20git%20revert.html#%E4%B8%80%E3%80%81%E6%98%AF%E4%BB%80%E4%B9%88)
 
   基于仓库中项目的最新版本生成一个相同的副本，并将其保存到你的计算机中 
   ``` 
@@ -123,4 +124,15 @@
   查看提交记录信息
   ```
   git log
+  ```
+  撤销到指定版本
+  - --mixed（默认）：默认的时候，只有暂存区变化
+  - --hard参数：如果使用 --hard 参数，那么工作区也会变化
+  - --soft：如果使用 --soft 参数，那么暂存区和工作区都不会变化
+  ```
+  git reset <ID>
+  ```
+  把这次撤销，作为一次最新的提交
+  ```
+  git revert <ID>
   ```
