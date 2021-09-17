@@ -35,23 +35,23 @@ const ASSRTS = {
   IMAGE_15,
   IMAGE_16,
   IMAGE_17,
-  IMAGE_18,
+  IMAGE_18
 }
 
 const getRndInteger = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) ) + min
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-// 
+//
 function decodeUnicode(str) {
-   //Unicode显示方式是\u4e00
-   str = "\\u"+str
-   str = str.replace(/\\/g, "%");
-    //转换中文
-   str = unescape(str);
-    //将其他受影响的转换回原来
-   str = str.replace(/%/g, "\\");
-   return str;
+  //Unicode显示方式是\u4e00
+  str = '\\u' + str
+  str = str.replace(/\\/g, '%')
+  //转换中文
+  str = unescape(str)
+  //将其他受影响的转换回原来
+  str = str.replace(/%/g, '\\')
+  return str
 }
 
 const getRandomStr = (length = 8, str = '') => {
@@ -63,12 +63,12 @@ const getRandomStr = (length = 8, str = '') => {
   return getRandomStr(length, str)
 }
 
-export const getGoodsData = ({pageSize = 10, pageNum = 1} = {}) => {
-  return new Array(pageSize).fill('').map(val => {
+export const getGoodsData = ({ pageSize = 10 } = {}) => {
+  return new Array(pageSize).fill('').map(() => {
     return {
       image: ASSRTS[`IMAGE_${getRndInteger(1, 18)}`],
       height: getRndInteger(150, 500), // 虚拟高度 测试图片渲染高度需大于 130
-      title: getRandomStr(getRndInteger(10, 30)),
+      title: getRandomStr(getRndInteger(10, 30))
     }
   })
 }

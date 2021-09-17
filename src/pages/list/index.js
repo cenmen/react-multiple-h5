@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import css from 'styled-jsx/css'
-import {global} from '../../css/index'
+import { global } from '../../css/index'
 
 import Waterfall from '../../components/waterfall'
-import {getGoodsData} from '../../api/mock'
-import {debounce} from '../../utils/tools'
+import { getGoodsData } from '../../api/mock'
+import { debounce } from '../../utils/tools'
 import bg from '../../assets/bg.jpeg'
 
 const List = () => {
@@ -15,13 +15,13 @@ const List = () => {
   const [tempDataSource, setTempDataSource] = useState([])
 
   const loadData = debounce(() => {
-    setTempDataSource(getGoodsData({pageSize: 20}))
+    setTempDataSource(getGoodsData({ pageSize: 20 }))
   }, 1500)
 
   useEffect(() => {
     loadData()
   }, [])
-  
+
   useEffect(() => {
     const target = tempDataSource.shift()
     if (target) {
@@ -35,16 +35,15 @@ const List = () => {
     }
   }, [tempDataSource])
 
-
-  window.onscroll = function(){
+  window.onscroll = function () {
     //scrollTop是滚动条滚动时，距离顶部的距离
-    var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
     //windowHeight是可视区的高度
-    var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    var windowHeight = document.documentElement.clientHeight || document.body.clientHeight
     //scrollHeight是滚动条的总高度
-    var scrollHeight = document.documentElement.scrollHeight||document.body.scrollHeight;
+    var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
     //滚动条到底部的条件
-    if(scrollTop + windowHeight == scrollHeight){
+    if (scrollTop + windowHeight == scrollHeight) {
       loadData()
     }
   }
@@ -58,21 +57,21 @@ const List = () => {
         <Waterfall list={dataList[1]} ref={rightWaterfallRef}></Waterfall>
       </div>
       <style jsx>{styles}</style>
-      <style jsx global>{global}</style>
+      <style jsx global>
+        {global}
+      </style>
     </div>
   )
 }
 
 const styles = css`
-.list-container {
-  background: url(${bg}) top/cover;
-  display: flex;
-}
-.waterfall-container {
-  flex: 1;
-}
+  .list-container {
+    background: url(${bg}) top/cover;
+    display: flex;
+  }
+  .waterfall-container {
+    flex: 1;
+  }
 `
 
-
-
-ReactDOM.render(<List></List>, document.getElementById("root"))
+ReactDOM.render(<List></List>, document.getElementById('root'))

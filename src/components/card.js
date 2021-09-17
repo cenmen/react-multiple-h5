@@ -1,10 +1,10 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 
-export default (props) => {
+const Card = (props) => {
   return (
     <div className="card-container">
-      <div className="image-container" style={{height: props.height}}>
+      <div className="image-container" style={{ height: props.height }}>
         <img className="image" src={props.image}></img>
       </div>
       <div className="title">{props.title}</div>
@@ -13,12 +13,13 @@ export default (props) => {
   )
 }
 
+export default Card
 const styles = css`
   .card-container {
     margin: 5px;
     padding: 10px;
     backdrop-filter: blur(6px);
-    background: rgba(255, 255, 255, .7);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
   }
   .image-container {
