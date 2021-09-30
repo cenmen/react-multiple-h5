@@ -1,9 +1,11 @@
 ## 参考链接
   ### document
   - [webpack5](https://webpack.docschina.org/guides/)
+  - [webpack5 命令行接口（CLI）](https://webpack.docschina.org/api/cli/#environment-options)
   - [styled-jsx](https://github.com/vercel/styled-jsx)
   - [react](https://zh-hans.reactjs.org/docs/getting-started.html)
   - [eslint 规则](http://eslint.cn/docs/rules/)
+  - [babel](https://babel.docschina.org/docs/en/)
   ### plugin & loader
   - [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin#configuration)
   - [webpack-dev-server 配置](https://webpack.js.org/configuration/dev-server/#devserveropen)
@@ -132,7 +134,7 @@
   ```
   git reset <ID>
   ```
-  把这次撤销，作为一次最新的提交
+  把这次撤销，作为一次最新的提交（可以回退到指定版本，多数会出现冲突需手动处理）
   ```
   git revert <ID>
   ```

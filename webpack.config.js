@@ -48,14 +48,10 @@ module.exports = {
       },
     ],
   },
+  // https://webpack.docschina.org/guides/caching/
   optimization: {
-    /*
-    1. 可以将node_modules中代码单独打包一个chunk最终输出
-    2. 自动分析多入口chunk中，有没有公共的文件。如果有会打包成单独一个chunk
-  */
+    moduleIds: 'deterministic',
     splitChunks: {
-      //这表明将选择哪些 chunk 进行优化。当提供一个字符串，有效值为 all，async 和 initial。
-      //设置为 all 可能特别强大，因为这意味着 chunk 可以在异步和非异步 chunk 之间共享。
       chunks: "all",
     },
   },
