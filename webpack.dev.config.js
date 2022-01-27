@@ -6,21 +6,19 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'dist')
     },
     compress: true,
     open: ['/list.html'],
     port: 9000,
-    hot: true,
+    hot: true
   },
   entry: entry,
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].bundle.js',
+    filename: 'js/[name].bundle.js'
   },
-  plugins: [
-    ...htmlList, 
-  ],
+  plugins: [...htmlList],
   module: {
     rules: [
       {
@@ -39,12 +37,12 @@ module.exports = {
             babelrc: false,
             presets: [
               require.resolve('@babel/preset-react'),
-              [require.resolve('@babel/preset-env'), { modules: false }],
+              [require.resolve('@babel/preset-env'), { modules: false }]
             ],
-            cacheDirectory: true,
-          },
-        },
-      },
-    ],
-  },
+            cacheDirectory: true
+          }
+        }
+      }
+    ]
+  }
 }
